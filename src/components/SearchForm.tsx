@@ -44,13 +44,26 @@ export default function SearchForm({ initial, onSearch }: Props) {
   }
 
   return (
-    <section className="hero">
-      <h2>Find your stay in Ottawa</h2>
-      <p className="hero-sub">
-        Five hand-picked stays across the city — from downtown luxury to a
-        quiet garden inn. No account, no card, just a look around.
-      </p>
-      <form className="search-form" onSubmit={handleSubmit}>
+    <>
+      <section className="hero">
+        <img className="hero-img" src="/images/hero.jpg" alt="" />
+        <div className="hero-shade" aria-hidden="true" />
+        <div className="hero-in">
+          <p className="kicker">Ottawa · Five stays, one city</p>
+          <h2>
+            Find your <em>stay</em> in Ottawa
+          </h2>
+          <p className="hero-sub">
+            Five hand-picked stays across the city, from downtown luxury to a
+            quiet garden inn. No account, no card, just a look around.
+          </p>
+          <p className="stars" aria-hidden="true">
+            ★★★★★
+          </p>
+        </div>
+      </section>
+      <div className="search-shell">
+        <form className="search-form" onSubmit={handleSubmit}>
         <label>
           Where in Ottawa?
           <select
@@ -102,11 +115,12 @@ export default function SearchForm({ initial, onSearch }: Props) {
             onChange={(e) => setRooms(Number(e.target.value))}
           />
         </label>
-        <button className="btn-primary" type="submit">
+        <button className="btn-primary search-btn" type="submit">
           Search hotels
         </button>
-      </form>
-      {error !== '' && <p className="error">{error}</p>}
-    </section>
+        </form>
+        {error !== '' && <p className="error">{error}</p>}
+      </div>
+    </>
   );
 }

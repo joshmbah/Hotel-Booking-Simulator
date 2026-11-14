@@ -22,7 +22,7 @@ export const HOTELS: Hotel[] = [
     description:
       'Classic luxury steps from Parliament Hill, with river views and a rooftop terrace.',
     amenities: ['Free Wi-Fi', 'Breakfast included', 'Pool', 'Spa', 'Valet parking', 'Restaurant'],
-    gradient: 'linear-gradient(135deg, #1e3a5f 0%, #3b6ea5 55%, #7fb0d8 100%)',
+    image: '/images/hero.jpg',
     rooms: [
       {
         id: 'rideau-standard',
@@ -66,7 +66,7 @@ export const HOTELS: Hotel[] = [
     description:
       'A boutique stay in the heart of the ByWard Market, surrounded by cafés and galleries.',
     amenities: ['Free Wi-Fi', 'Breakfast included', 'Pet friendly', 'Bar', 'Free parking'],
-    gradient: 'linear-gradient(135deg, #5b2a3a 0%, #a04a5e 55%, #d98a8a 100%)',
+    image: '/images/lobby.jpg',
     rooms: [
       {
         id: 'market-standard',
@@ -110,7 +110,7 @@ export const HOTELS: Hotel[] = [
     description:
       'Comfortable and central on Elgin Street — an easy walk to downtown and the Canal.',
     amenities: ['Free Wi-Fi', 'Pool', 'Fitness centre', 'Free parking', 'Restaurant'],
-    gradient: 'linear-gradient(135deg, #14532d 0%, #2f7d4f 55%, #7cc79b 100%)',
+    image: '/images/ottawa.jpg',
     rooms: [
       {
         id: 'elgin-standard',
@@ -154,7 +154,7 @@ export const HOTELS: Hotel[] = [
     description:
       'A quiet, garden-side inn near Lansdowne Park — a calm base with a neighbourhood feel.',
     amenities: ['Free Wi-Fi', 'Breakfast included', 'Garden terrace', 'Free parking'],
-    gradient: 'linear-gradient(135deg, #7c4a1e 0%, #b97f3e 55%, #e0b070 100%)',
+    image: '/images/dining.jpg',
     rooms: [
       {
         id: 'glebe-standard',
@@ -198,7 +198,7 @@ export const HOTELS: Hotel[] = [
     description:
       'Affordable comfort in Kanata with free parking — a practical base for west-end stays.',
     amenities: ['Free Wi-Fi', 'Free parking', 'Pool', 'Fitness centre'],
-    gradient: 'linear-gradient(135deg, #0f4c5c 0%, #2a7f8f 55%, #7cc4cf 100%)',
+    image: '/images/room-king.jpg',
     rooms: [
       {
         id: 'kanata-standard',
@@ -254,3 +254,10 @@ export function filterHotels(params: SearchParams): Hotel[] {
 export function lowestPrice(hotel: Hotel): number {
   return Math.min(...hotel.rooms.map((room) => room.pricePerNight));
 }
+
+/** Room photos, one per room type (the demo's photo set). */
+export const ROOM_IMAGE: Record<'Standard' | 'Deluxe' | 'Suite', string> = {
+  Standard: '/images/room-classic.jpg',
+  Deluxe: '/images/room-deluxe.jpg',
+  Suite: '/images/suite.jpg',
+};

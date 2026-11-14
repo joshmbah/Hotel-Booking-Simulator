@@ -44,13 +44,12 @@ export default function ResultsList({ hotels, params, onSelectHotel, onModifySea
         <ul className="hotel-list">
           {hotels.map((hotel) => (
             <li key={hotel.id} className="hotel-card">
-              <div
-                className="hotel-visual"
-                style={{ background: hotel.gradient }}
-                aria-hidden="true"
-              >
-                <span className="hotel-visual-label">{hotel.name}</span>
-              </div>
+              <img
+                className="hotel-photo"
+                src={hotel.image}
+                alt=""
+                loading="lazy"
+              />
               <div className="hotel-body">
                 <div className="hotel-top">
                   <h3>{hotel.name}</h3>

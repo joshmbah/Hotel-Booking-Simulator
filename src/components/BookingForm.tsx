@@ -9,6 +9,7 @@ import {
   makeReference,
   nightsBetween,
 } from '../types';
+import { ROOM_IMAGE } from '../data';
 import { prettyDate } from '../dates';
 
 interface Props {
@@ -194,6 +195,7 @@ export default function BookingForm({ hotel, room, params, onConfirm, onBack }: 
         </form>
 
         <aside className="price-summary">
+          <img className="summary-photo" src={ROOM_IMAGE[room.type]} alt="" />
           <h3>Price summary</h3>
           {breakdown === null ? (
             <p className="error">Pick valid dates to see the price.</p>

@@ -1,5 +1,6 @@
 import type { Hotel, Room, SearchParams } from '../types';
 import { formatMoney, nightsBetween } from '../types';
+import { ROOM_IMAGE } from '../data';
 import { prettyDate } from '../dates';
 
 interface Props {
@@ -19,13 +20,7 @@ export default function HotelRooms({ hotel, params, onSelectRoom, onBack }: Prop
         ← Back to results
       </button>
 
-      <div
-        className="hotel-visual hotel-visual--large"
-        style={{ background: hotel.gradient }}
-        aria-hidden="true"
-      >
-        <span className="hotel-visual-label">{hotel.name}</span>
-      </div>
+      <img className="hotel-banner" src={hotel.image} alt="" />
 
       <div className="hotel-detail-head">
         <div>
@@ -51,7 +46,13 @@ export default function HotelRooms({ hotel, params, onSelectRoom, onBack }: Prop
           const total = room.pricePerNight * nights * params.rooms;
           return (
             <li key={room.id} className="room-card">
-              <div>
+              <img
+                className="room-photo"
+                src={ROOM_IMAGE[room.type]}
+                alt=""
+                loading="lazy"
+              />
+              <div className="room-main">
                 <div className="room-top">
                   <h4>
                     {room.type} — {room.name}

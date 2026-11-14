@@ -21,8 +21,8 @@ export interface Hotel {
   description: string;
   amenities: string[];
   rooms: Room[];
-  /** CSS gradient used as the hotel's visual placeholder (no external images). */
-  gradient: string;
+  /** Photo for the hotel (from the demo's photo set, in public/images). */
+  image: string;
 }
 
 export interface SearchParams {

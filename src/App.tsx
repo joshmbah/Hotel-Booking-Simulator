@@ -82,11 +82,8 @@ export default function App() {
             onClick={handleStartOver}
             aria-label="Grand Hotel — back to search"
           >
-            <span className="brand-mark">G</span>
-            <span>
-              Grand Hotel
-              <small>Ottawa · Est. 2026</small>
-            </span>
+            Grand <span>Hotel</span>
+            <small>Ottawa</small>
           </button>
           <p className="header-note">Demo booking — no real stays, no charges</p>
         </div>

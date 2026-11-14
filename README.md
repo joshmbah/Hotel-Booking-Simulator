@@ -4,6 +4,10 @@ A hotel booking front end built with React and TypeScript (Vite). Search five fi
 
 Scope, stated plainly: this is a front end demo. There is no backend. No accounts, no payments, no real bookings. Every hotel, price and availability result is mock data that lives in `src/data.ts`, and the site says so where it matters.
 
+## Live demo
+
+[hotel-booking-simulator.vercel.app](https://hotel-booking-simulator.vercel.app), deployed on Vercel from this repo. Every push to main redeploys it.
+
 ## What it does
 
 - Search by dates, guests and rooms, with a neighbourhood search in the code version

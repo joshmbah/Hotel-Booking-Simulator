@@ -64,3 +64,5 @@ src/
 This project started in 2018 as a school project in PHP and MySQL, called Grand Hotel. That version was a full stack site: guest accounts with login, a real MySQL database with four tables, and a booking engine that saved requests, with an optional car rental. It was assigned as a two person project. My partner never showed up, so I built all of it myself.
 
 The 2018 code is not in this repo and is not published. It stored passwords in plain text and its queries were open to SQL injection. It was a first project, it taught me a lot, and it stays private. This repo is the rebuild.
+
+A muted recording of that 2018 site running is here though: [hotel-booking-2018-demo.mp4](hotel-booking-2018-demo.mp4), about three minutes, so you can see what it did.

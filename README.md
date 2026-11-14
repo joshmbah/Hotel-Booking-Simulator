@@ -56,7 +56,7 @@ src/
     HotelRooms.tsx    A hotel's Standard, Deluxe and Suite rooms
     BookingForm.tsx   Guest details, dates, car rental add on, live price summary
     Confirmation.tsx  Booking summary, price breakdown, reference code
-  styles.css          Single plain CSS stylesheet. Hotel visuals are CSS gradients, no external images
+  styles.css          Single plain CSS stylesheet. Hotel and room visuals are photos (public/images)
 ```
 
 ## The original version (2018)

@@ -1,1 +1,14 @@
-IyBCdWlsZCBzdGFnZS4gTm9kZSBidWlsZHMgdGhlIHNpdGUuCkZST00gbm9kZToyMC1hbHBpbmUgQVMgYnVpbGQKV09SS0RJUiAvYXBwCkNPUFkgcGFja2FnZS5qc29uIHBhY2thZ2UtbG9jay5qc29uIC4vClJVTiBucG0gY2kKQ09QWSAuIC4vClJVTiBucG0gcnVuIGJ1aWxkCgojIFNlcnZlIHN0YWdlLiBOZ2lueCBzZXJ2ZXMgdGhlIGJ1aWx0IGZpbGVzLgpGUk9NIG5naW54OmFscGluZQpDT1BZIG5naW54LmNvbmYgL2V0Yy9uZ2lueC9jb25mLmQvZGVmYXVsdC5jb25mCkNPUFkgLS1mcm9tPWJ1aWxkIC9hcHAvZGlzdCAvdXNyL3NoYXJlL25naW54L2h0bWwKRVhQT1NFIDgwCkNNRCBbIm5naW54IiwgIi1nIiwgImRhZW1vbiBvZmY7Il0K
+# Build stage. Node builds the site.
+FROM node:20-alpine AS build
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY . ./
+RUN npm run build
+
+# Serve stage. Nginx serves the built files.
+FROM nginx:alpine
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

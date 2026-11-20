@@ -8,6 +8,8 @@ Scope, stated plainly: this is a front end demo. There is no backend. No account
 
 [hotel-booking-simulator.vercel.app](https://hotel-booking-simulator.vercel.app), deployed on Vercel from this repo. Every push to main redeploys it.
 
+The same site also runs on AWS: [3.133.86.95](http://3.133.86.95), served from a container on ECS Fargate. That address can change when the task restarts, so the Vercel link above is the stable one.
+
 ## What it does
 
 - Search by dates, guests and rooms, with a neighbourhood search in the code version
@@ -40,6 +42,14 @@ npm run build
 ```
 
 This type-checks the project (`tsc`) and produces a static site in `dist/`. Preview the production build with `npm run preview`.
+
+## Deployment
+
+The site is packaged with Docker and runs on AWS. The Dockerfile builds the app with Node, then hands the built files to Nginx, which serves them.
+
+The image lives in Amazon ECR. Amazon ECS runs it as a Fargate service, so there is no server to manage, the container just runs. A GitHub Actions workflow ties it together: every push to main builds a fresh image, pushes it to ECR, and deploys it to the service.
+
+The AWS copy runs over HTTP for now. HTTPS needs a domain and a load balancer in front, which is the next upgrade I have planned for it.
 
 ## Project structure
 
